@@ -5,7 +5,7 @@ const pAmarelo = document.querySelector('.pAmarelo');
 const sinalVerde = document.querySelector('.sinalVerde');
 const pVerde = document.querySelector('.pVerde');
 
-function startTimer(duration, tempoInicio, chegou){
+function startTimer(duration, tempoInicio){
     var timer = duration, seconds;
     setInterval(function(){
         seconds = parseInt(timer % tempoInicio, 10);
@@ -15,17 +15,19 @@ function startTimer(duration, tempoInicio, chegou){
             seconds = seconds;
         }
 
-        if(chegou === 'vermelho'){
-            sinalVermelho.classList.remove('hide');
-            pVermelho.innerHTML = seconds;
-        }else if(chegou === 'amarelo'){
+        pVermelho.innerHTML = seconds;
+        pAmarelo.innerHTML = seconds;
+        pVerde.innerHTML = seconds;
+
+        if(seconds === 50){
+            sinalVermelho.classList.add('hide');
             sinalAmarelo.classList.remove('hide');
-            pAmarelo.innerHTML = seconds;
-        }else if(chegou === 'verde'){
+            sinalVermelho.innerHTML = seconds;
+        }else if(seconds === 25){
+            sinalAmarelo.classList.add('hide');
             sinalVerde.classList.remove('hide');
             pVerde.innerHTML = seconds;
         }
-
 
         if(--timer < 0){
             timer = duration;
@@ -37,29 +39,15 @@ function startTimer(duration, tempoInicio, chegou){
 function vermelho(){
     var duration = 60;
     var tempoInicio = 60;
-    const chegou = 'vermelho';
-    startTimer(duration, tempoInicio, chegou);
+    startTimer(duration, tempoInicio);
 }
 function amarelo(){
     var duration = 60;
     var tempoInicio = 5;
-    const chegou = 'amarelo';
-    startTimer(duration, tempoInicio, chegou);
+    startTimer(duration, tempoInicio);
 }
 function verde(){
     var duration = 60;
     var tempoInicio = 20;
-    const chegou = 'verde';
-    startTimer(duration, tempoInicio, chegou);
+    startTimer(duration, tempoInicio);
 }
-
-document.addEventListener('click', (e) => {
-    const elementoClicado = e.target;
-    if(elementoClicado.classList.contains('btn-vermelho')){
-        vermelho();
-    }else if(elementoClicado.classList.contains('btn-amarelo')){
-        amarelo();
-    }else if(elementoClicado.classList.contains('btn-verde')){
-        verde();
-    }
-});
