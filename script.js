@@ -7,6 +7,9 @@ const pVerde = document.querySelector('.pVerde');
 
 function startTimer(duration, tempoInicio){
     var timer = duration, seconds;
+    sinalVermelho.classList.remove('hide');
+    sinalAmarelo.classList.add('hide');
+    sinalVerde.classList.add('hide');
     setInterval(function(){
         seconds = parseInt(timer % tempoInicio, 10);
         if(seconds < 10){
@@ -27,6 +30,10 @@ function startTimer(duration, tempoInicio){
             sinalAmarelo.classList.add('hide');
             sinalVerde.classList.remove('hide');
             pVerde.innerHTML = seconds;
+        }else if(seconds === 0){
+            sinalVermelho.classList.remove('hide');
+            sinalAmarelo.classList.add('hide');
+            sinalVerde.classList.add('hide');
         }
 
         if(--timer < 0){
