@@ -5,56 +5,71 @@ const pAmarelo = document.querySelector('.pAmarelo');
 const sinalVerde = document.querySelector('.sinalVerde');
 const pVerde = document.querySelector('.pVerde');
 
-function startTimer(duration, tempoInicio){
+function vermelho(duration, tempoInicio){
     var timer = duration, seconds;
-    sinalVermelho.classList.remove('hide');
-    sinalAmarelo.classList.add('hide');
-    sinalVerde.classList.add('hide');
-    setInterval(function(){
+
+    setInterval(() => {
         seconds = parseInt(timer % tempoInicio, 10);
         if(seconds < 10){
             seconds = '0' + seconds;
         }else{
             seconds = seconds;
         }
-
+    
         pVermelho.innerHTML = seconds;
-        pAmarelo.innerHTML = seconds;
-        pVerde.innerHTML = seconds;
-
-        if(seconds === 50){
-            sinalVermelho.classList.add('hide');
-            sinalAmarelo.classList.remove('hide');
-            sinalVermelho.innerHTML = seconds;
-        }else if(seconds === 25){
-            sinalAmarelo.classList.add('hide');
-            sinalVerde.classList.remove('hide');
-            pVerde.innerHTML = seconds;
-        }else if(seconds === 0){
-            sinalVermelho.classList.remove('hide');
-            sinalAmarelo.classList.add('hide');
-            sinalVerde.classList.add('hide');
-        }
-
+    
         if(--timer < 0){
-            timer = duration;
+            timer = 60;
         }
-
     }, 400);
 }
 
-function vermelho(){
-    var duration = 60;
-    var tempoInicio = 60;
-    startTimer(duration, tempoInicio);
+function amarelo(duration, tempoInicio){
+    var timer = duration, seconds;
+
+    sinalVermelho.classList.add('hide');
+    sinalAmarelo.classList.remove('hide');
+
+    setInterval(() => {
+        seconds = parseInt(timer % tempoInicio, 10);
+        if(seconds < 10){
+            seconds = '0' + seconds;
+        }else{
+            seconds = seconds;
+        }
+    
+        pAmarelo.innerHTML = seconds;
+    
+        if(--timer < 0){
+            timer = 60;
+        }
+    }, 1000);
 }
-function amarelo(){
-    var duration = 60;
-    var tempoInicio = 5;
-    startTimer(duration, tempoInicio);
+
+function verde(duration, tempoInicio){
+
+    var timer = duration, seconds;
+
+    sinalVermelho.classList.add('hide');
+    sinalAmarelo.classList.add('hide');
+    sinalVerde.classList.remove('hide');
+
+    setInterval(() => {
+        seconds = parseInt(timer % tempoInicio, 10);
+        if(seconds < 10){
+            seconds = '0' + seconds;
+        }else{
+            seconds = seconds;
+        }
+    
+        pVerde.innerHTML = seconds;
+    
+        if(--timer < 0){
+            timer = 60;
+        }
+    }, 1000);
 }
-function verde(){
-    var duration = 60;
-    var tempoInicio = 20;
-    startTimer(duration, tempoInicio);
-}
+
+// vermelho(60, 60);
+// amarelo(60, 25);
+// verde(60, 40);
