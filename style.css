@@ -16,8 +16,8 @@ body{
 }
 
 .pai{
-    width: 420px;
-    height: 420px;
+    width: 500px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -107,13 +107,6 @@ p{
     display: none;
 }
 
-/* .cores{
-    color: white;
-    background-color: black;
-    border-radius: 40%;
-    font-size: 2em;
-} */
-
 .hVermelho{
     width: 100px;
     height: 100px;
@@ -143,4 +136,16 @@ p{
 
 .opacity{
     opacity: 0.2;
+}
+
+.avo{
+    display: flex;
+    background-color: rgb(33, 32, 32);
+    height: 31.25em;
+    border-radius: 5em;
+}
+
+.cores{
+    height: 100%;
+    align-items: center;
 }

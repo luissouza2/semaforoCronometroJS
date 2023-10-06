@@ -8,9 +8,9 @@ const hVermelho = document.querySelector('.hVermelho');
 const hAmarelo = document.querySelector('.hAmarelo');
 const hVerde = document.querySelector('.hVerde');
 
-const tempoInicioVermelho = 2000;
-const tempoInicioAmarelo = 2000;
-const tempoInicioVerde = 2000;
+const tempoInicioVermelho = 10000;
+const tempoInicioAmarelo = 3000;
+const tempoInicioVerde = 5000;
 
 function vermelho(tempoInicio){
     var contador = (tempoInicio / 1000);
@@ -105,4 +105,4 @@ function verde(tempoInicio){
     }, tempoInicio)
 }
 
-// vermelho(tempoInicioVermelho);
+vermelho(tempoInicioVermelho);
