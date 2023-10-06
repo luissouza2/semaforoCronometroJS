@@ -8,22 +8,18 @@ const hVermelho = document.querySelector('.hVermelho');
 const hAmarelo = document.querySelector('.hAmarelo');
 const hVerde = document.querySelector('.hVerde');
 
-const tempoInicioVermelho = 15;
-const tempoInicioAmarelo = 3;
-const tempoInicioVerde = 10;
+const tempoInicioVermelho = 2000;
+const tempoInicioAmarelo = 2000;
+const tempoInicioVerde = 2000;
 
 function vermelho(tempoInicio){
-    const duration = 60;
-    var contador = tempoInicio;
-    var timer = duration;
+    var contador = (tempoInicio / 1000);
 
     const intervalVermelho = setInterval(() => {
-        contador--;
-        console.log(contador);
-        
-        if(contador < 10){
-            contador = '0' + contador;
+        if(contador >= 0){
+            contador--;
         }
+        console.log(`ta aqui: ${contador}`);
 
         hVermelho.classList.remove('opacity');
         hAmarelo.classList.add('opacity');
@@ -32,46 +28,29 @@ function vermelho(tempoInicio){
         sinalVermelho.classList.remove('hide');
         sinalAmarelo.classList.add('hide');
         sinalVerde.classList.add('hide');
-        pVermelho.innerHTML = contador;
+        if(contador < 10){
+            pVermelho.innerHTML = (`0${contador}`);
+        }
 
         if(contador === 0){
             clearInterval(intervalVermelho);
-            console.log(`CONTADOR: ${contador}`);           
-        }
-
-        if(timer-- < 0){
-            timer = 60;
+            console.log(`CONTADOR: ${contador}`);
         }
     }, 1000);
 
     setTimeout(function(){
-        hVermelho.classList.remove('opacity');
-        hAmarelo.classList.add('opacity');
-        hVerde.classList.add('opacity');
-
-        sinalVermelho.classList.remove('hide');
-        sinalAmarelo.classList.add('hide');
-        sinalVerde.classList.add('hide');
-        pVermelho.innerHTML = contador;
         verde(tempoInicioVerde)
-    }, tempoInicio * 1000)
+    }, tempoInicio)
 }
 
 function amarelo(tempoInicio){
-    const duration = 60;
-    var contador = tempoInicio;
-    var timer = duration;
+    var contador = (tempoInicio / 1000);
 
-    const intervalVermelho = setInterval(() => {
-        
-        if(contador < 10){
-            contador = '0' + contador;
-        }else{
-            contador = contador;
+    const intervalAmarelo = setInterval(() => {
+        if(contador >= 0){
+            contador--;
         }
-
-        contador--;
-        console.log(contador);
+        console.log(`ta aqui: ${contador}`);
 
         hVermelho.classList.add('opacity');
         hAmarelo.classList.remove('opacity');
@@ -80,43 +59,29 @@ function amarelo(tempoInicio){
         sinalVermelho.classList.add('hide');
         sinalAmarelo.classList.remove('hide');
         sinalVerde.classList.add('hide');
-        pAmarelo.innerHTML = contador;
-
-        if(contador === 0){
-            clearInterval(intervalVermelho);
-            console.log(`CONTADOR: ${contador}`);         
+        if(contador < 10){
+            pAmarelo.innerHTML = (`0${contador}`);
         }
 
-        if(timer-- < 0){
-            timer = 60;
+        if(contador === 0){
+            clearInterval(intervalAmarelo);
+            console.log(`CONTADOR: ${contador}`);
         }
     }, 1000);
 
     setTimeout(function(){
-        hVermelho.classList.add('opacity');
-        hAmarelo.classList.remove('opacity');
-        hVerde.classList.add('opacity');
-
-        sinalVermelho.classList.add('hide');
-        sinalAmarelo.classList.remove('hide');
-        sinalVerde.classList.add('hide');
-        pAmarelo.innerHTML = contador;
         vermelho(tempoInicioVermelho)
-    }, tempoInicio * 1000)
+    }, tempoInicio)
 }
 
 function verde(tempoInicio){
-    const duration = 60;
-    var contador = tempoInicio;
-    var timer = duration;
+    var contador = (tempoInicio / 1000);
 
-    const intervalVermelho = setInterval(() => {
-        if(contador < 10){
-            contador = '0' + contador;
+    const intervalVerde = setInterval(() => {
+        if(contador >= 0){
+            contador--;
         }
-
-        contador--;
-        console.log(contador);
+        console.log(`ta aqui: ${contador}`);
 
         hVermelho.classList.add('opacity');
         hAmarelo.classList.add('opacity');
@@ -125,29 +90,19 @@ function verde(tempoInicio){
         sinalVermelho.classList.add('hide');
         sinalAmarelo.classList.add('hide');
         sinalVerde.classList.remove('hide');
-        pVerde.innerHTML = contador;
-
-        if(contador === 0){
-            clearInterval(intervalVermelho);
-            console.log(`CONTADOR: ${contador}`);         
+        if(contador < 10){
+            pVerde.innerHTML = (`0${contador}`);
         }
 
-        if(timer-- < 0){
-            timer = 60;
+        if(contador === 0){
+            clearInterval(intervalVerde);
+            console.log(`CONTADOR: ${contador}`);
         }
     }, 1000);
 
     setTimeout(function(){
-        hVermelho.classList.add('opacity');
-        hAmarelo.classList.add('opacity');
-        hVerde.classList.remove('opacity');
-
-        sinalVermelho.classList.add('hide');
-        sinalAmarelo.classList.add('hide');
-        sinalVerde.classList.remove('hide');
-        pVerde.innerHTML = contador;
         amarelo(tempoInicioAmarelo);
-    }, tempoInicio * 1000)
+    }, tempoInicio)
 }
 
-vermelho(tempoInicioVermelho);
+// vermelho(tempoInicioVermelho);
