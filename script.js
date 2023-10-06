@@ -8,7 +8,7 @@ const hVermelho = document.querySelector('.hVermelho');
 const hAmarelo = document.querySelector('.hAmarelo');
 const hVerde = document.querySelector('.hVerde');
 
-const tempoInicioVermelho = 5;
+const tempoInicioVermelho = 15;
 const tempoInicioAmarelo = 3;
 const tempoInicioVerde = 10;
 
@@ -48,6 +48,18 @@ function vermelho(tempoInicio){
             timer = 60;
         }
     }, 1000);
+
+    setTimeout(function(){
+        hVermelho.classList.remove('opacity');
+        hAmarelo.classList.add('opacity');
+        hVerde.classList.add('opacity');
+
+        sinalVermelho.classList.remove('hide');
+        sinalAmarelo.classList.add('hide');
+        sinalVerde.classList.add('hide');
+        pVermelho.innerHTML = seconds;
+        verde(tempoInicioVerde)
+    }, tempoInicio * 1000)
 }
 
 function amarelo(tempoInicio){
@@ -86,6 +98,18 @@ function amarelo(tempoInicio){
             timer = 60;
         }
     }, 1000);
+
+    setTimeout(function(){
+        hVermelho.classList.add('opacity');
+        hAmarelo.classList.remove('opacity');
+        hVerde.classList.add('opacity');
+
+        sinalVermelho.classList.add('hide');
+        sinalAmarelo.classList.remove('hide');
+        sinalVerde.classList.add('hide');
+        pAmarelo.innerHTML = seconds;
+        vermelho(tempoInicioVermelho)
+    }, tempoInicio * 1000)
 }
 
 function verde(tempoInicio){
@@ -124,6 +148,18 @@ function verde(tempoInicio){
             timer = 60;
         }
     }, 1000);
+
+    setTimeout(function(){
+        hVermelho.classList.add('opacity');
+        hAmarelo.classList.add('opacity');
+        hVerde.classList.remove('opacity');
+
+        sinalVermelho.classList.add('hide');
+        sinalAmarelo.classList.add('hide');
+        sinalVerde.classList.remove('hide');
+        pVerde.innerHTML = seconds;
+        amarelo(tempoInicioAmarelo);
+    }, tempoInicio * 1000)
 }
 
 vermelho(tempoInicioVermelho);
