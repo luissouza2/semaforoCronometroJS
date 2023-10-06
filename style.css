@@ -25,7 +25,7 @@ body{
 }
 
 .sinalVermelho{
-    background-color: rgb(33, 32, 32);
+    background-color: rgb(56, 48, 48);
     width: 400px;
     height: 400px;
     border: 18px solid red;
@@ -48,7 +48,7 @@ body{
 }
 
 .sinalAmarelo{
-    background-color: rgb(33, 32, 32);
+    background-color: rgb(56, 48, 48);
     width: 400px;
     height: 400px;
     border: 18px solid rgb(255, 183, 0);
@@ -71,7 +71,7 @@ body{
 }
 
 .sinalVerde{
-    background-color: rgb(33, 32, 32);
+    background-color: rgb(56, 48, 48);
     width: 400px;
     height: 400px;
     border: 18px solid rgb(4, 150, 4);
@@ -113,7 +113,8 @@ p{
     border-radius: 50%;
     background-color: red;
     margin: 50px;
-    border: 5px solid black;
+    border-top: 10px solid black;
+
 }
 
 .hAmarelo{
@@ -122,7 +123,7 @@ p{
     border-radius: 50%;
     background-color: rgb(255, 183, 0);
     margin: 50px;
-    border: 5px solid black;
+    border-top: 10px solid black;
 }
 
 .hVerde{
@@ -131,7 +132,7 @@ p{
     border-radius: 50%;
     background-color: rgb(4, 150, 4);
     margin: 50px;
-    border: 5px solid black;
+    border-top: 10px solid black;
 }
 
 .opacity{
@@ -140,7 +141,7 @@ p{
 
 .avo{
     display: flex;
-    background-color: rgb(33, 32, 32);
+    background-color: rgb(56, 48, 48);
     height: 31.25em;
     border-radius: 5em;
     border: 5px solid black;

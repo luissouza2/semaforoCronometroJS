@@ -105,4 +105,4 @@ function verde(tempoInicio){
     }, tempoInicio)
 }
 
-vermelho(tempoInicioVermelho);
+// vermelho(tempoInicioVermelho);
