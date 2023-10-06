@@ -8,9 +8,12 @@ const hVermelho = document.querySelector('.hVermelho');
 const hAmarelo = document.querySelector('.hAmarelo');
 const hVerde = document.querySelector('.hVerde');
 
-function vermelho(){
+const tempoInicioVermelho = 5;
+const tempoInicioAmarelo = 3;
+const tempoInicioVerde = 10;
+
+function vermelho(tempoInicio){
     const duration = 60;
-    const tempoInicio = 15;
     var contador = -1;
     var timer = duration, seconds;
 
@@ -47,9 +50,8 @@ function vermelho(){
     }, 1000);
 }
 
-function amarelo(){
+function amarelo(tempoInicio){
     const duration = 60;
-    const tempoInicio = 5;
     var contador = -1;
     var timer = duration, seconds;
 
@@ -86,9 +88,8 @@ function amarelo(){
     }, 1000);
 }
 
-function verde(){
+function verde(tempoInicio){
     const duration = 60;
-    const tempoInicio = 10;
     var contador = -1;
     var timer = duration, seconds;
 
@@ -125,8 +126,4 @@ function verde(){
     }, 1000);
 }
 
-
-
-vermelho();
-setTimeout(amarelo, 15000);
-setTimeout(verde, 20000);
+vermelho(tempoInicioVermelho);
