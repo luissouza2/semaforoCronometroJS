@@ -8,12 +8,12 @@ const hVermelho = document.querySelector('.hVermelho');
 const hAmarelo = document.querySelector('.hAmarelo');
 const hVerde = document.querySelector('.hVerde');
 
-const tempoInicioVermelho = 10000;
+const tempoInicioVermelho = 5000;
 const tempoInicioAmarelo = 3000;
 const tempoInicioVerde = 5000;
 
 function vermelho(tempoInicio){
-    var contador = (tempoInicio / 1000);
+    var contador = (tempoInicio / 1000) + 1;
 
     const intervalVermelho = setInterval(() => {
         if(contador >= 0){
@@ -28,14 +28,18 @@ function vermelho(tempoInicio){
         sinalVermelho.classList.remove('hide');
         sinalAmarelo.classList.add('hide');
         sinalVerde.classList.add('hide');
+
+        if(contador < tempoInicio){
+            pVermelho.innerHTML = (`${contador}`);
+        }
         if(contador < 10){
             pVermelho.innerHTML = (`0${contador}`);
         }
-
         if(contador === 0){
             clearInterval(intervalVermelho);
             console.log(`CONTADOR: ${contador}`);
         }
+
     }, 1000);
 
     setTimeout(function(){
@@ -44,7 +48,7 @@ function vermelho(tempoInicio){
 }
 
 function amarelo(tempoInicio){
-    var contador = (tempoInicio / 1000);
+    var contador = (tempoInicio / 1000) + 1;
 
     const intervalAmarelo = setInterval(() => {
         if(contador >= 0){
@@ -59,14 +63,18 @@ function amarelo(tempoInicio){
         sinalVermelho.classList.add('hide');
         sinalAmarelo.classList.remove('hide');
         sinalVerde.classList.add('hide');
+
+        if(contador < tempoInicio){
+            pAmarelo.innerHTML = (`${contador}`);
+        }
         if(contador < 10){
             pAmarelo.innerHTML = (`0${contador}`);
         }
-
         if(contador === 0){
             clearInterval(intervalAmarelo);
             console.log(`CONTADOR: ${contador}`);
         }
+
     }, 1000);
 
     setTimeout(function(){
@@ -75,7 +83,7 @@ function amarelo(tempoInicio){
 }
 
 function verde(tempoInicio){
-    var contador = (tempoInicio / 1000);
+    var contador = (tempoInicio / 1000) + 1;
 
     const intervalVerde = setInterval(() => {
         if(contador >= 0){
@@ -90,14 +98,18 @@ function verde(tempoInicio){
         sinalVermelho.classList.add('hide');
         sinalAmarelo.classList.add('hide');
         sinalVerde.classList.remove('hide');
+
+        if(contador < tempoInicio){
+            pVerde.innerHTML = (`${contador}`);
+        }
         if(contador < 10){
             pVerde.innerHTML = (`0${contador}`);
         }
-
         if(contador === 0){
             clearInterval(intervalVerde);
             console.log(`CONTADOR: ${contador}`);
         }
+
     }, 1000);
 
     setTimeout(function(){
@@ -105,4 +117,4 @@ function verde(tempoInicio){
     }, tempoInicio)
 }
 
-vermelho(tempoInicioVermelho);
+// vermelho(tempoInicioVermelho);
