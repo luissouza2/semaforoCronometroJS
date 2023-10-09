@@ -19,7 +19,7 @@ function vermelho(tempoInicio){
         if(contador >= 0){
             contador--;
         }
-        console.log(`ta aqui: ${contador}`);
+        console.log(`${contador}`);
 
         hVermelho.classList.remove('opacity');
         hAmarelo.classList.add('opacity');
@@ -50,7 +50,7 @@ function amarelo(tempoInicio){
         if(contador >= 0){
             contador--;
         }
-        console.log(`ta aqui: ${contador}`);
+        console.log(`${contador}`);
 
         hVermelho.classList.add('opacity');
         hAmarelo.classList.remove('opacity');
@@ -81,7 +81,7 @@ function verde(tempoInicio){
         if(contador >= 0){
             contador--;
         }
-        console.log(`ta aqui: ${contador}`);
+        console.log(`${contador}`);
 
         hVermelho.classList.add('opacity');
         hAmarelo.classList.add('opacity');
@@ -105,4 +105,4 @@ function verde(tempoInicio){
     }, tempoInicio)
 }
 
-// vermelho(tempoInicioVermelho);
+vermelho(tempoInicioVermelho);
